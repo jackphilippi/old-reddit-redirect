@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Old Reddit Redirector",
+    "version": "1.0",
+    "description": "Redirects to old.reddit.com when on a reddit page",
+    "author": "Jack Philippi <github.com/fippi>",
+    "icons": {
+      "48": "icon.png"
+    },
+    "permissions": ["activeTab", "tabs", "http://*/*", "https://*/*"],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_icon": "icon.png"
+    }
+  }
+  
