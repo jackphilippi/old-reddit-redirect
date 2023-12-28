@@ -34,7 +34,7 @@
     },
     "browser_specific_settings": {
       "gecko": {
-        "id": "old-reddit-redirect@fippi.io",
+        "id": "{0f9c5e79-2c56-4d79-9021-48619ea17132}",
         "strict_min_version": "42.0"
       }
     }
