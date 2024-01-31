@@ -1,7 +1,13 @@
-browser.storage.sync.get({ enable_modal: true, simple_button: true }).then(items => {
+browser.storage.sync.get({ enable_modal: true, simple_button: true, auto_redirect: false }).then(items => {
     // If it's a media URL, don't bother. See https://github.com/jackphilippi/old-reddit-redirect/issues/1
     if (window.location.href.includes("i.redd.it")) {
         return;
+    }
+    // If auto redirect is enabled, automatically redirect :)
+    if (items.auto_redirect) {
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.replace('www.reddit.com', 'old.reddit.com');
+        window.location.href = newUrl;
     }
     // If the modal is disabled in options, don't show it 
     if (!items.enable_modal) {
