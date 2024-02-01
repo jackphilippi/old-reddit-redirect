@@ -1,6 +1,11 @@
 browser.storage.sync.get({ enable_modal: true, simple_button: true, auto_redirect: false }).then(items => {
     // If it's a media URL, don't bother. See https://github.com/jackphilippi/old-reddit-redirect/issues/1
-    if (window.location.href.includes("i.redd.it")) {
+    // Also ignore poll and gallery links as they break
+    if (
+        window.location.href.includes("i.redd.it") ||
+        window.location.href.includes("/gallery/") || 
+        window.location.href.includes("/poll/")
+    ) {
         return;
     }
     // If auto redirect is enabled, automatically redirect :)
